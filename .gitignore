@@ -1,0 +1,13 @@
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Maven
+**/target/
+
+# Logs
+**/*.log
+
+# OS
+.DS_Store
