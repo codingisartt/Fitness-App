@@ -3,14 +3,21 @@ spring:
     name: api-gateway
   cloud:
     gateway:
-#      discovery:
-#        locator:
-#          enabled: true
       routes:
         - id: userservice
           uri: lb://userservice
           predicates:
             - Path=/api/users/**
+
+        - id: activityservice
+          uri: lb://activityservice
+          predicates:
+            - Path=/api/activities/**
+
+        - id: aiservice
+          uri: lb://aiservice
+          predicates:
+            - Path=/api/recommendations/**
 
 eureka:
   instance:
