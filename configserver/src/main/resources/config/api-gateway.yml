@@ -1,5 +1,35 @@
 spring:
   application:
     name: api-gateway
-  config:
-    import: optional:configserver:http://localhost:8888
+  cloud:
+    gateway:
+      routes:
+        - id: userservice
+          uri: lb://userservice
+          predicates:
+            - Path=/api/users/**
+
+        - id: activityservice
+          uri: lb://activityservice
+          predicates:
+            - Path=/api/activities/**
+
+        - id: aiservice
+          uri: lb://aiservice
+          predicates:
+            - Path=/api/recommendations/**
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+
+server:
+  port: 9090
