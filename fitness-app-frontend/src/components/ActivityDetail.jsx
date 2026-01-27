@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-import { getActivityDetail } from '../services/api';
+import { getActivityById, getActivityDetail } from '../services/api';
 import { Box, Card, CardContent, Divider, Typography } from '@mui/material';
 
 const ActivityDetail = () => {
@@ -11,9 +11,10 @@ const ActivityDetail = () => {
     useEffect(() => {
         const fetchActivityDetail = async () => {
             try{
-                const response = await getActivityDetail(id);
+                const response = await getActivityById(id);
                 setActivity(response.data);
-                setRecommendation(response.data);
+                const recommendationRes = await getActivityDetail(id);
+                setRecommendation(recommendationRes.data);
             }catch(error){
                 console.error(error);
             }
@@ -40,26 +41,26 @@ const ActivityDetail = () => {
                     <CardContent>
                         <Typography variant="h5" gutterBottom>AI Recommendation</Typography>
                         <Typography variant="h6">Analysis</Typography>
-                        <Typography paragraph>{activity.recommendation}</Typography>
+                        <Typography paragraph>{recommendation.recommendation}</Typography>
 
                         <Divider sx={{ my:2 }} />
 
                         <Typography variant="h6">Improvements</Typography>
-                        {activity?.improvements?.map((improvement, index)=>(
-                            <Typography key={index} paragraph> {activity.improvements}</Typography>
+                        {recommendation?.improvements?.map((improvement, index)=>(
+                            <Typography key={index} paragraph> {improvement}</Typography>
                         ))}
 
                         <Divider sx={{ my:2 }} />
 
                         <Typography variant="h6">Suggestions</Typography>
-                        {activity?.suggestions?.map((suggestion, index)=>(
+                        {recommendation?.suggestions?.map((suggestion, index)=>(
                             <Typography key={index} paragraph> {suggestion}</Typography>
                         ))}
 
                         <Divider sx={{ my:2 }} />
 
                         <Typography variant="h6">Safety Guidelines</Typography>
-                        {activity?.safety?.map((safety, index)=>(
+                        {recommendation?.safety?.map((safety, index)=>(
                             <Typography key={index} paragraph> {safety}</Typography>
                         ))}
                     </CardContent>
