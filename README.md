@@ -47,8 +47,9 @@ Backend
   - Stores internal user data
   - Synchronizes users from Keycloak
 
- -- User Service Key Concepts:
-  (Stores both internal user ID and keycloakId & Supports validation via either internal ID or Keycloak sub)
+ **User Service Key Concepts**
+- Stores both internal user ID and Keycloak ID
+- Supports validation via either internal ID or Keycloak `sub`
 
 - **Activity Service**
   - MongoDB database
@@ -57,4 +58,52 @@ Backend
 - **AI Service**
   - MongoDB database
   - Uses Gemini API for personalized activity recommendations
- 
+
+###  Frontend
+- React
+- Vite
+- Material UI (MUI)
+- Axios
+
+### Login Page  
+Live Demo (Local): http://localhost:5173
+<img width="888" height="520" alt="image" src="https://github.com/user-attachments/assets/64416052-8d18-43fa-8e3d-2f6741478638" />
+
+ ### User Authentication Page
+ <img width="605" height="356" alt="image" src="https://github.com/user-attachments/assets/86e3cb42-55c5-4930-b36e-4c4332dbff17" />
+
+ ### Eureka
+ <img width="605" height="280" alt="image" src="https://github.com/user-attachments/assets/968f44c9-8792-49c4-bba0-dbb71e2babc9" />
+
+ ### Gateway with Keycloak Token
+ <img width="605" height="482" alt="image" src="https://github.com/user-attachments/assets/69d4e450-4cae-496f-875f-998669f69058" />
+<img width="605" height="355" alt="image" src="https://github.com/user-attachments/assets/429364da-6808-4d06-8106-68584020c449" />
+
+### Activites Page
+<img width="605" height="428" alt="image" src="https://github.com/user-attachments/assets/ff897b45-8edd-4aa8-9f00-9def30353d1e" />
+
+### Activity Details with Gemini API Recommendations
+<img width="605" height="608" alt="image" src="https://github.com/user-attachments/assets/1a6bf4fb-b90c-4d38-9952-d9071fcb270e" />
+<img width="605" height="498" alt="image" src="https://github.com/user-attachments/assets/c9181f84-e6d1-4a24-b990-3e869fa0d650" />
+
+### Default Recommendations
+<img width="605" height="505" alt="image" src="https://github.com/user-attachments/assets/e4349261-dff3-4f94-9729-4415f02efa5c" />
+When the AI service is unavailable or returns an invalid response, the backend applies a fallback mechanism to generate safe default recommendations. This ensures uninterrupted user experience and system resilience.
+
+### RabbitMQ – Queues for Asynchronous Communication
+<img width="1632" height="965" alt="image" src="https://github.com/user-attachments/assets/73f37a97-2554-475e-a666-fd3960d0471f" />
+<img width="1208" height="658" alt="image" src="https://github.com/user-attachments/assets/b16fd1cd-2c3a-4684-9eef-c381738df371" />
+<img width="605" height="290" alt="image" src="https://github.com/user-attachments/assets/75ea5237-fd1f-4440-a7de-972c0eb1d74e" />
+
+### Keycloak – User Management
+<img width="1640" height="667" alt="image" src="https://github.com/user-attachments/assets/795c38fb-150a-47c1-a184-499611948285" />
+
+### PostgreSQL – User Service Database
+<img width="1307" height="565" alt="image" src="https://github.com/user-attachments/assets/dbbab3a6-7c2b-4c7c-8900-961fe388e584" />
+
+### MongoDB – AI Service Database
+<img width="1301" height="927" alt="image" src="https://github.com/user-attachments/assets/f0f3193d-2f9f-4c26-854d-2768935d84de" />
+
+
+
+
