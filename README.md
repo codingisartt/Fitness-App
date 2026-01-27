@@ -84,7 +84,7 @@ Live Demo (Local): http://localhost:5173
 
 ### Activity Details with Gemini API Recommendations
 <img width="605" height="608" alt="image" src="https://github.com/user-attachments/assets/1a6bf4fb-b90c-4d38-9952-d9071fcb270e" />
-<img width="605" height="498" alt="image" src="https://github.com/user-attachments/assets/c9181f84-e6d1-4a24-b990-3e869fa0d650" />
+<img width="1057" height="961" alt="image" src="https://github.com/user-attachments/assets/c8c1c4b8-6724-4366-93f6-10385f54bda3" />
 
 ### Default Recommendations
 <img width="605" height="505" alt="image" src="https://github.com/user-attachments/assets/e4349261-dff3-4f94-9729-4415f02efa5c" />
