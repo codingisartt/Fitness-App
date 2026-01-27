@@ -30,6 +30,10 @@ public class ActivityAIService {
 
     private Recommendation processGeminiResponse(Activity activity, String aiResponse) {
         try{
+            if (aiResponse == null || aiResponse.isBlank()) {
+                log.error("Gemini response is null or empty");
+                return createDefaultRecommendation(activity);
+            }
             JsonNode rootNode = objectMapper.readTree(aiResponse);
             JsonNode textNode = rootNode.path("candidates")
                     .get(0)

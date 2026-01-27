@@ -17,7 +17,11 @@ public class ActivityController {
     private ActivityService activityService;
 
     @PostMapping
-    public ResponseEntity<ActivityResponse> trackActivity(@RequestBody ActivityRequest request) {
+    public ResponseEntity<ActivityResponse> trackActivity(@RequestBody ActivityRequest request, @RequestHeader("X-USER-ID") String userId) {
+        if (userId == null || userId.isBlank()) {
+            throw new RuntimeException("Missing X-USER-ID header");
+        }
+        request.setUserId(userId);
         return ResponseEntity.ok(activityService.trackActivity(request));
     }
 
